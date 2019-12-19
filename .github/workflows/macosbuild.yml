@@ -12,4 +12,4 @@ jobs:
           /usr/local/opt/llvm/bin/clang -fopenmp -L/usr/local/opt/llvm/lib omp_hello.c -o hello
           #clang -fopenmp omp_hello.c -o hello
           ./hello
-          ldd hello
+          otool -L hello # The macOs ldd tool to see linked libraries paths
