@@ -12,5 +12,5 @@ jobs:
       - name: build on macos
         run: |
           brew install libomp
-          clang omp_hello.c -o hello
+          clang -fopenmp omp_hello.c -o hello
           ./hello
