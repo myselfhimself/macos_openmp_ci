@@ -11,5 +11,6 @@ jobs:
       - uses: actions/checkout@v1
       - name: build on macos
         run: |
+          brew install libomp
           clang omp_hello.c -o hello
           ./hello
