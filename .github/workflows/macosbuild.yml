@@ -4,13 +4,11 @@ on: [push]
 jobs:
   build:
     runs-on: macos-latest
-    strategy:
-      matrix:
-        python-version: [3.5]
     steps:
       - uses: actions/checkout@v1
       - name: build on macos
         run: |
-          brew install libomp
-          clang -fopenmp omp_hello.c -o hello
+          brew install libomp llvm
+          /usr/local/opt/llvm/bin/clang -fopenmp -L/usr/local/opt/llvm/lib omp_hello.c -o hello
+          #clang -fopenmp omp_hello.c -o hello
           ./hello
